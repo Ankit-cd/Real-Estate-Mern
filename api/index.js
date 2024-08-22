@@ -2,12 +2,14 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import userRouter from './routes/userRoute.js'
+import authRouter from './routes/authRoute.js'
 dotenv.config();
 
 
 
 
-const app=express()
+const app=express();
+app.use(express.json());
 
 mongoose.connect(process.env.DATABASE_URL,{
     useNewUrlParser:true,
@@ -20,9 +22,10 @@ mongoose.connect(process.env.DATABASE_URL,{
 })
 
 
-app.listen(4000,()=>{
-    console.log('Server is running on port 4000');
+app.listen(3000,()=>{
+    console.log('Server is running on port 3000');
 }
 );
 
 app.use("/api/users",userRouter)
+app.use("/api/auth",authRouter)
