@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { signInStart ,signInFailure ,signInSuccess} from '../redux/user/userSlice';
+import OAuth from '../components/OAuth';
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -71,6 +72,7 @@ const SignIn = () => {
                 loading ? 'Loading...' : 'Sign In'
               }
             </button>
+            <OAuth/>
 
         </form>
 
