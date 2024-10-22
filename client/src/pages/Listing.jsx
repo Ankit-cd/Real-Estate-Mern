@@ -14,6 +14,7 @@ import {
   FaShare,
 } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
+import Contact from '../components/Contact';
 
 const Listing = () => {
   SwiperCore.use([Navigation]);
@@ -132,6 +133,16 @@ const Listing = () => {
                 </li>
 
               </ul>
+              {
+                currentUser && listing.userRef !== currentUser._id && !contact && (
+                <button onClick={()=>setContact(true)} className='bg-slate-700 text-white uppercase hover:opacity-95 rounded-lg p-3'>Contact Landlord</button>
+              )
+              }
+              {
+                contact && (
+                  <Contact listing={listing}/>
+                )
+              }
           </div>
         </div>
         )
