@@ -16,6 +16,8 @@ app.use(express.json());
 
 app.use(cookieParser());
 
+const __dirname = path.resolve();
+
 app.use(express.static(path.join(__dirname,`/client/dist`)));
 
 app.get('*',(req,res)=>{
@@ -32,7 +34,7 @@ mongoose.connect(process.env.DATABASE_URL,{
     process.exit(1);
 });
 
-const __dirname = path.resolve();
+
 
 
 app.listen(3000,()=>{
